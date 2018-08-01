@@ -8,23 +8,23 @@ wp_enqueue_script('bootstrap-js', get_template_directory_uri().'/js/bootstrap.mi
 }
 add_action('wp_enqueue_scripts', 'load_bootstrap');
 register_nav_menu( $location, $description );
-
+/*Menu nav*/
 function glavnoe_menu() {
-	wp_nav_menu( array( 	'theme_location'  => '',
-	'menu'            => '', 
-	'container'       => 'ul', 
-	'container_class' => '', 
-	'container_id'    => '',
-	'menu_class'      => 'nav navbar-nav navbar-right', 
-	'echo'            => true,
-	'fallback_cb'     => 'wp_page_menu',
-	'before'          => '',
-	'after'           => '',
-	'link_before'     => '',
-	'link_after'      => '',
-	'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-	'depth'           => 0,
-	'walker' => new Bootstrap_Walker_Nav_Menu,
+  wp_nav_menu( array(   'theme_location'  => '',
+  'menu'            => '', 
+  'container'       => 'ul', 
+  'container_class' => '', 
+  'container_id'    => '',
+  'menu_class'      => 'nav navbar-nav navbar-right', 
+  'echo'            => true,
+  'fallback_cb'     => 'wp_page_menu',
+  'before'          => '',
+  'after'           => '',
+  'link_before'     => '',
+  'link_after'      => '',
+  'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+  'depth'           => 0,
+  'walker' => new Bootstrap_Walker_Nav_Menu,
  ) ); }
 add_action( 'after_setup_theme', 'mytheme_setup' ); 
 function mytheme_setup() {
@@ -118,6 +118,8 @@ function add_menuclass($ulclass) {
    return preg_replace('/<a /', '<a class="nav-link text-costum-colors"', $ulclass);
 }
 add_filter('wp_nav_menu','add_menuclass');
+/*Menu off*/
+
 function true_register_wp_sidebars() {
  
   /* В боковой колонке - первый сайдбар */
